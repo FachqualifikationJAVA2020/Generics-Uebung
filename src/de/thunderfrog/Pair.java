@@ -1,60 +1,63 @@
 package de.thunderfrog;
 
-public class Pair <String, Integer>{
-    private String sPair;
-    private String sPair2;
-    private int iPair;
+public class Pair <T, T1>{
+    private T firstPair;
+    private T1 secondPair;
 
-    // KONSTRUKTOR STRING + INTEGER
-    public Pair(String sPair, int iPair){
-        this.sPair = sPair;
-        this.iPair = iPair;
-    }
-
-    // KONSTRUKTOR STRING + STRING
-    public Pair(String sPair, String sPair2){
-        this.sPair = sPair;
-        this.sPair2 = sPair2;
+    // KONSTRUKTOR
+    public Pair(T s, T1 s1) {
+        this.firstPair = s;
+        this.secondPair = s1;
     }
 
     // SETTER & GETTER
-    public String getsPair() {
-        return sPair;
+    public T getFirstPair() {
+        return firstPair;
     }
 
-    public void setsPair(String sPair) {
-        this.sPair = sPair;
+    public void setFirstPair(T firstPair) {
+        this.firstPair = firstPair;
     }
 
-    public int getiPair() {
-        return iPair;
+    public T1 getSecondPair() {
+        return secondPair;
     }
 
-    public void setiPair(int iPair) {
-        this.iPair = iPair;
+    public void setSecondPair(T1 secondPair) {
+        this.secondPair = secondPair;
     }
 
-    public String getsPair2() {
-        return sPair2;
+    // AUFGABE A
+    public T getFirst(){
+        return getFirstPair();
     }
 
-    public void setsPair2(String sPair2) {
-        this.sPair2 = sPair2;
+    public T1 getSecond(){
+        return getSecondPair();
     }
 
-    // Aufgabe A
-    public void getFirst(){
-        System.out.println("First: " + getsPair());
-    }
-
-    public void getSecond(){
-        System.out.println("Second: " + getiPair());
-    }
-
-    // Aufgabe C
+    // AUFGABE C
     public void swap(){
+        T first;
+        T1 second;
 
+        first = (T) getSecond();
+        second = (T1) getFirst();
+
+        setFirstPair(first);
+        setSecondPair(second);
     }
 
+    // AUFGABE D
+    public static <T, T1> Pair swap(Pair<T, T1> pair){
+        return new Pair<>(pair.getSecond(), pair.getFirst());
+    }
 
+    @Override
+    public String toString() {
+        return "Pair{" +
+                "firstPair=" + firstPair +
+                ", secondPair=" + secondPair +
+                '}';
+    }
 }
